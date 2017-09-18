@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\model\modelbase;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Groups extends Model
+class GroupsBase extends Model
 {
     //
 }

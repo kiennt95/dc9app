@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\requestUser;
+use App\model\Users;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class UserController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -19,13 +23,13 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    //use RegistersUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -34,6 +38,30 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest', ['except' => 'logout']);
     }
+
+    public function login(Request $request)
+    {
+      // login here
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            die('fghfh');
+            // The user is being remembered...
+        }else{
+            die('1');
+        }
+    }
+
+
+    public function register(requestUser $request)
+    {
+        // register here
+        $user = Users::create([
+            'name'              => isset($request->name)?$request->name:'mản',
+            'email'             => $request->email,
+            'password'          => bcrypt($request->password)
+        ]);
+        return $user;
+    }
+
 }

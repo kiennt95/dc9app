@@ -13,11 +13,9 @@ class OrdersTableSeeder extends Seeder
     {
         DB::table('orders')->insert([
             'id'            => 1,
-            'name'          => 'Giặt quần áo cho cậu',
-            'unit'          => 2,
-            'service_id'    => 1,
+            'name'          => 'Giặt quần áo và mua dép',
             'user_id'       => 3,
-            'content'        => 'Dịch vụ giặt là 2kg/ giá 900k',
+            'content'        => 'Dịch vụ giặt là 2kg/ giá 900k, dép 900k/đôi',
         ]);
 
 

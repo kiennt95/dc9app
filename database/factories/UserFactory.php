@@ -13,13 +13,25 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
-    static $password;
+$factory->define(App\model\Users::class, function (Faker $faker) {
+    $gender = rand(1,2);
+    $genderStr = 'female';
+    if($gender == 1)
+        $genderStr = 'male';
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'username'      => $faker->userName,
+        'email'         => $faker->unique()->safeEmail,
+        'first_name'    => $faker->firstName($genderStr),
+        'last_name'     => $faker->lastName($genderStr),
+        'phone'         => $faker->e164PhoneNumber,
+        'birthday'      => $faker->date('Y-m-d','1990-09-18'),
+        'status'        => 1,
+        'gender'        => $gender,
+        'location_id'   => rand(1,3),
+        //'avatar'        => $faker->image('/tmp', 500, 500),
+        'password'      => \Illuminate\Support\Facades\Hash::make('password', [ 'rounds' => 12 ]),
         'remember_token' => str_random(10),
     ];
+
 });

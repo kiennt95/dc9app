@@ -13,7 +13,7 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->increments('id')->comment('Id id cửa hàng');
             $table->string('name',50)->comment('Tên cửa hàng');
             $table->integer('type')->comment('Kiểu 1: cửa hàng, 2: khách hàng, 3: Vận chuyển')->default(0);
@@ -40,6 +40,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+        Schema::dropIfExists('locations');
     }
 }

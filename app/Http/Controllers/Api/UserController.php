@@ -45,8 +45,9 @@ class UserController extends Controller
     {
       // login here
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            die('fghfh');
+
             // The user is being remembered...
+            return Auth::user();
         }else{
             die('1');
         }

@@ -14,13 +14,13 @@ class OrderDetailTableSeeder extends Seeder
         DB::table('orders_detail')->insert([
             'id'            => 1,
             'service_id'    => 1,
-            'unit'          => 1
+            'number'          => 1
         ]);
 
         DB::table('orders_detail')->insert([
             'id'            => 2,
             'service_id'    => 3,
-            'unit'          => 1
+            'number'          => 1
         ]);
     }
 }

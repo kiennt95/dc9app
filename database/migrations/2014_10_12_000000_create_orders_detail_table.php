@@ -16,8 +16,7 @@ class CreateOrdersDetailTable extends Migration
         Schema::create('orders_detail', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('service_id')->default(0)->comment('ID nhân viên kinh doanh');
-        $table->integer('unit')->default(0)->comment('Đơn vị tính kg, đôi, chiếc, thùng, bộ...');
-        $table->integer('status')->comment('Active 1 ; Inactive 0')->default(0);
+        $table->integer('number')->default(0)->comment('Đơn vị tính kg, đôi, chiếc, thùng, bộ...');
         $table->integer('deleted_by')->comment('deleted user id')->nullable();
         $table->integer('created_by')->comment('created user id')->nullable();
         $table->integer('updated_by')->comment('updated user id')->nullable();

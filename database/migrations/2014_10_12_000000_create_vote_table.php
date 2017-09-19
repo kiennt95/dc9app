@@ -15,12 +15,12 @@ class CreateVoteTable extends Migration
     {
         Schema::create('vote', function (Blueprint $table) {
         $table->increments('id');
-        $table->integer('order_id')->default(0);
-        $table->integer('vote')->default(0);
+        $table->integer('order_id');
+        $table->integer('user_id');
+        $table->integer('vote')->default(0)->comment('vote 1 to 5');
         $table->integer('deleted_by')->comment('deleted user id')->nullable();
         $table->integer('created_by')->comment('created user id')->nullable();
         $table->integer('updated_by')->comment('updated user id')->nullable();
-        $table->rememberToken();
         $table->softDeletes();
         $table->timestamps();
 
@@ -38,6 +38,6 @@ class CreateVoteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('vote');
     }
 }

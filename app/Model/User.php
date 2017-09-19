@@ -1,10 +1,11 @@
 <?php
 
-namespace App\model;
+
+namespace App\Model;
 
 use App\model\modelbase\UsersBase;
 
-class Users extends UsersBase
+class User extends UsersBase
 {
     public function abc(){
         return 'abc';

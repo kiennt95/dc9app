@@ -1,11 +1,12 @@
 <?php
 
-namespace App\model;
+
+namespace App\Model;
 
 use App\model\modelBase\OrdersBase;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends OrdersBase
+class Order extends OrdersBase
 {
     //
 }

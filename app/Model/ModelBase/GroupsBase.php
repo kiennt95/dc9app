@@ -15,5 +15,6 @@ class GroupsBase extends Model
 
     public function createdBy(){
         return $this->belongsTo(UsersBase::class,'created_by','id');
+
     }
 }

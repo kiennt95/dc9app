@@ -17,7 +17,7 @@ class VoteBase extends Model
         return $this->belongsTo(UsersBase::class,'created_by','id');
     }
 
-    public function voteFor(){
+    public function voteForUser(){
         return $this->belongsTo(UsersBase::class,'user_id','id');
     }
 

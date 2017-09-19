@@ -1,17 +1,18 @@
 <?php
 
-namespace App\model;
+
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class news extends Model
+class Post extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'news';
+    protected $table = 'posts';
 
     /**
     * The database primary key value.
@@ -25,7 +26,14 @@ class news extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'category'];
+    protected $fillable = ['title', 'content', 'category', 'user_id'];
 
-    
+    public function user()
+	{
+		return $this->belongsTo('App\User');
+	}
+	
 }
+
+
+

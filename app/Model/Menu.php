@@ -1,7 +1,7 @@
 <?php
 
-namespace App\model;
 
+namespace App\Model;
 use App\model\modelBase\MenuBase;
 use Illuminate\Database\Eloquent\Model;
 

@@ -49,7 +49,7 @@ class UserController extends Controller
             // The user is being remembered...
             return Auth::user();
         }else{
-            die('1');
+
         }
     }
 

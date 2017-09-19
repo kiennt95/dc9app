@@ -45,10 +45,9 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
             // The user is being remembered...
-            return redirect()->intended('');
+            return redirect()->intended('/home');
         }else{
 
         }
-        var_dump(Auth::check());die;
     }
 }

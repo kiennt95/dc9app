@@ -1,9 +1,8 @@
 <?php
 
-
 namespace App\Model;
 
-use App\model\modelbase\UsersBase;
+use App\Model\Modelbase\UsersBase;
 
 class User extends UsersBase
 {

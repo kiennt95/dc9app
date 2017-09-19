@@ -12,6 +12,10 @@ class OrderDetailBase extends Model
         return $this->belongsTo(UsersBase::class,'created_by','id');
     }
 
+    public function updatedBy(){
+        return $this->belongsTo(UsersBase::class,'updated_by','id');
+    }
+
     public function user(){
         return $this->belongsTo(UsersBase::class,'user_id','id');
     }

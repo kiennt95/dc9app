@@ -55,6 +55,7 @@ class ServiceController extends Controller
             'data'      =>[
             ]
         ];
+
         try{
 
             $service = Service::find($id);

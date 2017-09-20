@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends ServicesBase
 {
     //
+
+
+
+    
 }

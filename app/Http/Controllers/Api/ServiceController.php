@@ -1,24 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\api;
 
-use App\Model\Menu;
+use App\Model\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Mockery\Exception;
 
-class MenuController extends Controller
+class ServiceController extends Controller
 {
-
     public function __construct()
     {
         //$this->middleware('auth');
     }
 
     /**
-     * get list menu
+     * get list service
      *
      * @return array
      */
@@ -31,8 +27,7 @@ class MenuController extends Controller
         ];
 
         try{
-            $groupId = 1;
-            $data = $this->makeData(Menu::all()->where('group_id',$groupId));
+            $data = $this->makeData(Service::all()->where('status',1));
             $result['data']     = $data;
             $result['code']     = 200;
             $result['mesenger'] = 'GET_SUCCESS';
@@ -46,7 +41,6 @@ class MenuController extends Controller
             $result
         ]);
     }
-
 
 
     /**
@@ -63,11 +57,12 @@ class MenuController extends Controller
         ];
         try{
 
-            $menu = Menu::find($id);
+            $service = Service::find($id);
             $result['data']     = [
-                'parent_id'         => $menu->parent_id,
-                'name'              => $menu->name,
-                'link_api'          => $menu->link_api
+                'id'        => $service->id,
+                'name'      => $service->name,
+                'price'     => $service->price,
+                'unit'      => $service->unit,
             ];
             $result['code']     = 200;
             $result['mesenger'] = 'GET_SUCCESS';
@@ -83,19 +78,22 @@ class MenuController extends Controller
     }
 
 
+
+
     /*
      *
      *
      */
-    private function makeData($menus){
-        if (count($menus) == 0 )
+    private function makeData($services){
+        if (count($services) == 0 )
             return ;
         $data = [];
-        foreach ($menus as $key=>$menu){
+        foreach ($services as $key=>$service){
 
-            $data[$key]['parent_id']= $menu->parent_id;
-            $data[$key]['name'] = $menu->name;
-            $data[$key]['link_api'] = $menu->link_api;
+            $data[$key]['id']       = $service->id;
+            $data[$key]['name']     = $service->name;
+            $data[$key]['price']    = $service->price;
+            $data[$key]['unit']     = $service->unit;
         }
         return $data;
     }

@@ -63,6 +63,8 @@ class UserController extends Controller
                 'code'      => 200,
                 'mesenger'  =>'LOGIN_SUCCESS',
                 'data'      =>[
+                    'token_name'    => Auth::user()->getRememberTokenName(),
+                    'token'         => Auth::user()->getRememberToken(),
                     'username'      => Auth::user()->username,
                     'first_name'    => Auth::user()->first_name,
                     'last_name'     => Auth::user()->last_name,
